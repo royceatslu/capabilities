@@ -1,0 +1,37 @@
+@mixin btn($bg) {
+  background: darken($bg,20%);
+  border:none;
+  text-decoration: none;
+  cursor:pointer;
+  &:hover {
+    background:$bg;
+    transition: background 0.3s ease;
+  }
+  &:active {
+    background:lighten($bg,25%);
+  } 
+}
+
+
+@mixin shadows($amount) {
+
+        border: 3px solid #fff;
+        box-shadow: 0 0 $amount rgba(0, 0, 0, 0.5);
+}
+
+@mixin shadow($amount) {
+
+        box-shadow: 0 0 ($amount) rgba(0, 0, 0, 0.5);
+}
+
+@mixin textshadow {
+
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+@mixin column() {
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  align-items:center;
+}

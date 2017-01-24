@@ -1,0 +1,401 @@
+@import "reset";
+@import "vars";
+@import "mixins";
+@import "grid";
+@import "type";
+@import "nav";
+
+body {
+    background-color: #eee;
+
+    @media screen and (min-width: $tablet) {
+        min-height: 100vh;
+        height: 100vh;
+
+        /* ie doesn't like min-height here, which is too bad because it makes more sense. */
+    }
+
+    background-size: cover;
+    background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background: #000;
+    color: #fff;
+}
+
+#pagecontent {
+    position: relative;
+    flex: 1;
+
+    @media screen and (max-width: $tablet) {
+        margin-bottom: 100px;
+    }
+}
+
+#main {
+    margin: 0 2%;
+    position: relative;
+    padding: 1rem;
+}
+
+header, footer {
+    background: #000;
+}
+
+header {
+    height: $header;
+}
+
+h1#logo {
+    background: center center url(img/logo.png) no-repeat darken($primary, 20%);
+    background-size: 100% auto;
+    text-indent: -999em;
+    position: relative;
+    cursor: pointer;
+    border: 10px solid darken($primary, 20%);
+
+    a {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    // border-bottom: 0.5em darken($primary, 20%) solid;
+    width: 100px;
+    height: $header;
+}
+
+footer {
+    position: relative;
+    z-index: 100;
+
+    @media screen and (max-width: $tablet) {
+        position: fixed;
+        bottom: 0;
+    }
+}
+
+footer {
+    width: 100%;
+    height: $footer;
+    line-height: $footer;
+    z-index: 200;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    background: #000;
+    bottom: 0;
+}
+
+#panels {
+    position: relative;
+    margin-top: 12px;
+    min-height: 50vh;
+}
+
+.panel {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    h3 {
+        display:none;
+    }
+}
+
+.hide {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+    position: static !important;
+
+    @media screen and (max-width: $tablet) {
+        margin-bottom: 200px;
+    }
+}
+
+#sections a, .loaders a, .userlevels a {
+        .material-icons {
+            display: none;
+            color: #fff;
+        }
+        &.current {
+    opacity: 1;
+    color: darken($primary, 30%);
+    border:3px solid $primary;
+
+    .material-icons {
+        display: block;
+        color:$primary;
+        width: 100%;
+        font-size: 64px;
+        text-align: center;
+        position: absolute;
+        bottom: -38px;
+        left: 0;
+    }
+}
+    }
+
+
+
+
+#userlevels {
+    position: absolute;
+    height: $footer;
+    line-height: $footer;
+    color: #fff;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    padding-right: 12px;
+
+    div {
+        display: inline;
+        padding: 0 6px;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            opacity: .6;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+#copyright {
+    @media screen and (max-width: $tablet) {
+        text-align: left;
+        margin-left: 4px;
+    }
+}
+
+.content strong {
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+    font-style: italic;
+    color: $primary;
+}
+
+.scroll {
+    z-index: 1000;
+
+    @media screen and (min-width: $tablet) {
+        display: none;
+    }
+
+    .material-icons {
+        font-size: 32px;
+            position: relative;
+    left: -3px;
+    top: -3px;
+    }
+text-align: center;
+    display: block;
+    position: fixed;
+    border: $primary solid 3px;
+    right: 15px;
+    top: 100px;
+    border-radius: 2.0em;
+    width: 32px;
+    height: 32px;
+    color: $primary;
+    transition:all ease 0.3s;
+    &:hover {
+        color:darken($primary,20%);
+        border-color:darken($primary,20%);
+    }
+}
+
+#userlevels div a.current {
+    opacity: 1;
+    font-weight: 700;
+}
+
+.document_classification {
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+}
+
+
+
+.home {
+    #pagecontent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        #main {
+            h1 {
+                text-align: center;
+                color: #fff;
+                font-size: 6em;
+                letter-spacing: -0.03em;
+                line-height: 3em;
+                text-shadow: 0 0 6px rgba(#000, 0.4);
+                position: relative;
+                top: -80px;
+            }
+        }
+    }
+}
+
+IMG.capabilities {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.products {
+    .box {
+        
+       opacity:.4;
+    transition:opacity 0.3s ease;
+    
+    &:hover {
+        opacity:1;
+    }
+        img {
+            max-width:200px;
+            max-height:80px;
+            
+            
+        }
+    }
+    
+    .new{
+        
+        border: 2px solid #886A08;
+    }
+    
+}
+
+#layouts {
+    display: none;
+    transition: display ease 0.2s;
+
+    p {
+        text-align: left;
+        font-size: 16px;
+        margin-top: 0;
+    }
+
+    img {
+        width: 100%;
+        @media screen and (min-width:$mobile ) {
+       .half & {
+        margin: 12px;
+    }.fit & {
+        padding: 0;
+        display: block;
+        margin: 0 auto;
+        max-height: 100%;
+        max-width: 100%;
+    }
+    }
+        height: auto;
+    }
+}
+
+.icon {
+    opacity:.7;
+    transition:opacity 0.3s ease;
+    &:hover {
+        opacity:1;
+    }
+}
+
+.choices {
+h3 {
+    text-align: center;;
+}
+}
+
+.productlist {
+   opacity:0;
+
+    transition:all ease .3s;
+}
+
+.reveal {
+    opacity:1;
+}
+
+.hidden {
+
+    display:none;
+}
+ 
+
+
+.highlight {
+  opacity:1;
+  color:#104060 !important;
+}
+
+
+#sections a, .loaders a, a.highlight {
+    .material-icons {
+        display: none;
+        color: #fff;
+    }
+
+
+}
+
+/*css for responsive youtube video */
+ .videoContainer{
+position:relative;
+padding-bottom:56.25%;
+padding-top:30px;
+height:0;
+overflow:hidden;
+}
+
+.videoContainer iframe, .video-container object, .video-container embed {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .half {
+    width: 50%;
+    margin: 1%; } }
+
+/*@media screen and (min-width: 786px){
+  .half {
+    width: 50%;
+    margin: 1%;
+    }
+} */
+
+@media screen and (min-width: 640px){
+  .half {
+    width: 100%;
+    margin: 1%;
+    }
+}  
+
+/*@media screen and (min-width: 500px){
+  .half {
+    width: 50%;
+    margin: 1%;
+     font-size:15px }
+} */
